@@ -17,4 +17,16 @@ export default createGlobalStyle`
 
     font-family: 'Roboto', sans-serif;
   }
+
+  :root {
+    --background: #bfdbff;
+    --background-info: #6a82a0;
+
+    --black: #000;
+    --gray: #8a8c90;
+    --white: #fff;
+
+    --error-info: #d55;
+    --error: #f52a2a;
+  }
 `;
