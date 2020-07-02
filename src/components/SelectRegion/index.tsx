@@ -1,8 +1,10 @@
-import React, { useState, useEffect, ChangeEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent, useCallback } from 'react';
 
 import { Container, Select } from './styles';
 import api from '../../utils/api';
 import SnackError from '../SnackError';
+
+import { useRegion } from '../../hooks/Cases';
 
 interface Data {
   name: string;
@@ -13,49 +15,46 @@ const SelectRegion: React.FC = () => {
   const [countries, setCountries] = useState<Data[]>([]);
   const [open, setOpen] = useState<boolean>(false);
 
+  const { getInformationsData } = useRegion();
+
   const [countriesValue, setCountriesValue] = useState<string>('0');
 
-  useEffect(() => {
-    api.get('/countries')
-      .then((response) => {
-        const { countries } = response.data;
+  const getDataValues = useCallback(async () => {
+    try {
+      const response = await api.get('/countries');
 
-        const country = countries.map((country: { name: string }, index: number) => ({
-          name: country.name, id: index + 1
-        }));
+      const { countries } = response.data;
 
-        setCountries(country);
-      })
-      .catch(() => {
-        setOpen(true)
+      const country = countries.map((country: { name: string }, index: number) => ({
+        name: country.name,
+        id: index + 1
+      }));
 
-        setTimeout(() => {
-          setOpen(false);
-        }, 2500);
-      });
+      setCountries(country);
+    } catch (error) {
+      setOpen(true);
+
+      setTimeout(() => {
+        setOpen(false);
+      }, 2500);
+    }
   }, []);
 
-  useEffect(() => {
-    if (countriesValue !== '0') {
-      api.get(`/countries/${countriesValue}`)
-        .then((response) => {
-          console.log(response.data);
-        })
-        .catch(() => {
-          setOpen(true)
-
-          setTimeout(() => {
-            setOpen(false);
-          }, 2500);
-        });
-    }
-  }, [countriesValue]);
-
-  function handleSelectCountry(event: ChangeEvent<HTMLSelectElement>) {
+  const handleSelectCountry = useCallback((event: ChangeEvent<HTMLSelectElement>) => {
     const country = event.target.value;
 
     setCountriesValue(country);
-  }
+  }, []);
+
+  useEffect(() => {
+    getDataValues();
+  }, [getDataValues]);
+
+  useEffect(() => {
+    if (countriesValue !== '0') {
+      getInformationsData({ region: countriesValue });
+    }
+  }, [countriesValue, getInformationsData]);
 
   return (
     <Container>

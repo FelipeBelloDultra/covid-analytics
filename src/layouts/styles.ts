@@ -10,7 +10,7 @@ export const Grid = styled.div`
   display: grid;
 
   grid-template-columns: auto auto 340px;
-  grid-template-rows: 120px auto auto;
+  grid-template-rows: 100px auto auto;
 
   grid-template-areas:
     'SR SR IF'

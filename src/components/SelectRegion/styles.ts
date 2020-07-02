@@ -15,13 +15,14 @@ export const Select = styled.select`
   -moz-appearance: none;
   appearance: none;
 
-  background: #F0F0F5;
-  border: 5px solid var(--background);
+  background: var(--white-smoke);
+  border: 3px solid var(--white-smoke);
 
   transition: border .2s;
+  cursor: pointer;
 
   &:hover {
-    border: 5px solid var(--background-info);
+    border: 3px solid var(--background-info);
   }
 
   max-width: 300px;
@@ -33,8 +34,4 @@ export const Select = styled.select`
 
   color: var(--black);
   font-weight: bold;
-
-  > option {
-    border-bottom: 1px solid var(--gray);
-  }
 `;

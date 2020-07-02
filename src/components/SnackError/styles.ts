@@ -8,11 +8,11 @@ export const Container = styled.div<Props>`
   align-items: center;
   flex-direction: column;
 
-  transition: all 0.2s;
+  transition: all .3s;
 
   position: fixed;
-  top: ${(props) => props.open ? '20px' : '-250px'};
-  right: 20px;
+  right: ${(props) => props.open ? '20px' : '-350px'};
+  top: 20px;
 
   z-index: 3;
 `;

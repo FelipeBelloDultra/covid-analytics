@@ -8,9 +8,6 @@ export interface Props {
 }
 
 const SnackError: React.FC<Props> = ({ open, message }) => {
-
-  console.log(open);
-
   return (
     <Container
       open={open}

@@ -19,12 +19,13 @@ export default createGlobalStyle`
   }
 
   :root {
-    --background: #bfdbff;
-    --background-info: #6a82a0;
+    --background: #b0c4de;
+    --background-info: #6c7888;
 
     --black: #000;
     --gray: #8a8c90;
     --white: #fff;
+    --white-smoke: #F0F0F5;
 
     --error-info: #d55;
     --error: #f52a2a;
