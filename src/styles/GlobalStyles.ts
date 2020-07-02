@@ -4,6 +4,7 @@ export default createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
+    outline: 0;
     box-sizing: border-box;
   }
 
@@ -19,8 +20,8 @@ export default createGlobalStyle`
   }
 
   :root {
-    --background: #b0c4de;
-    --background-info: #6c7888;
+    --background: #62a86f;
+    --background-info: #3b7345;
 
     --black: #000;
     --gray: #8a8c90;
