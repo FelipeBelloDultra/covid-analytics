@@ -12,7 +12,7 @@ interface Data {
 }
 
 const SelectRegion: React.FC = () => {
-  const [countries, setCountries] = useState<Data[]>([]);
+  const [countriesColettion, setCountries] = useState<Data[]>([]);
   const [open, setOpen] = useState<boolean>(false);
 
   const { getInformationsData } = useRegion();
@@ -25,10 +25,12 @@ const SelectRegion: React.FC = () => {
 
       const { countries } = response.data;
 
-      const country = countries.map((country: { name: string }, index: number) => ({
-        name: country.name,
-        id: index + 1
-      }));
+      const country = countries.map(
+        (countrie: { name: string }, index: number) => ({
+          name: countrie.name,
+          id: index + 1,
+        }),
+      );
 
       setCountries(country);
     } catch (error) {
@@ -40,11 +42,14 @@ const SelectRegion: React.FC = () => {
     }
   }, []);
 
-  const handleSelectCountry = useCallback((event: ChangeEvent<HTMLSelectElement>) => {
-    const country = event.target.value;
+  const handleSelectCountry = useCallback(
+    (event: ChangeEvent<HTMLSelectElement>) => {
+      const country = event.target.value;
 
-    setCountriesValue(country);
-  }, []);
+      setCountriesValue(country);
+    },
+    [],
+  );
 
   useEffect(() => {
     getDataValues();
@@ -58,29 +63,17 @@ const SelectRegion: React.FC = () => {
 
   return (
     <Container>
-      <Select
-        value={countriesValue}
-        onChange={handleSelectCountry}
-      >
-        <option
-          value="0"
-        >
-          Select a Country...
-          </option>
-        {countries.map((countrie, i) => (
-          <option
-            key={i}
-            value={countrie.name}
-          >
+      <Select value={countriesValue} onChange={handleSelectCountry}>
+        <option value="0">Select a Country...</option>
+        {countriesColettion.map(countrie => (
+          <option key={countrie.id} value={countrie.name}>
             {countrie.name}
           </option>
         ))}
       </Select>
-      <SnackError
-        open={open}
-      />
+      <SnackError open={open} />
     </Container>
   );
-}
+};
 
 export default SelectRegion;

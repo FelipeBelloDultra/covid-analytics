@@ -13,6 +13,6 @@ const Layout: React.FC = () => {
       <InformationCases />
     </Grid>
   );
-}
+};
 
 export default Layout;

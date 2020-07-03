@@ -15,10 +15,12 @@ interface RegionsData {
 const InformationCases: React.FC = () => {
   const { informationsValues } = useRegion();
 
-  const [data, setData] = useState<RegionsData>(informationsValues as RegionsData);
+  const [data, setData] = useState<RegionsData>(
+    informationsValues as RegionsData,
+  );
 
   useEffect(() => {
-    setData(informationsValues as RegionsData)
+    setData(informationsValues as RegionsData);
   }, [informationsValues]);
 
   return (
@@ -27,9 +29,12 @@ const InformationCases: React.FC = () => {
       <h1>Deaths: {data.deaths}</h1>
       <h1>Recovered: {data.recovered}</h1>
       <h1>Region: {data.region}</h1>
-      <h1>Last Update: {data.lastUpdate && new Date(data.lastUpdate).toLocaleDateString()}</h1>
+      <h1>
+        Last Update:{' '}
+        {data.lastUpdate && new Date(data.lastUpdate).toLocaleDateString()}
+      </h1>
     </Container>
   );
-}
+};
 
 export default InformationCases;

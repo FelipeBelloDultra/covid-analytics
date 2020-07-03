@@ -36,8 +36,8 @@ const CasesProvider: React.FC = ({ children }) => {
         deaths: deaths.value,
         lastUpdate,
         recovered: recovered.value,
-        region
-      })
+        region,
+      });
     } catch (error) {
       setOpen(true);
 
@@ -48,12 +48,14 @@ const CasesProvider: React.FC = ({ children }) => {
   }, []);
 
   return (
-    <CasesContext.Provider value={{ informationsValues: data, getInformationsData }}>
+    <CasesContext.Provider
+      value={{ informationsValues: data, getInformationsData }}
+    >
       {children}
       <SnackError open={open} />
     </CasesContext.Provider>
   );
-}
+};
 
 function useRegion(): CasesContextData {
   const context = useContext(CasesContext);

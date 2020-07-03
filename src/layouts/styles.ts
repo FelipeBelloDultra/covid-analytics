@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 /*
-** SR - Select Region
-** IF - Information
-** IC - Information Cases
-*/
+ ** SR - Select Region
+ ** IF - Information
+ ** IC - Information Cases
+ */
 
 export const Grid = styled.div`
   display: grid;

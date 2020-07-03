@@ -8,10 +8,10 @@ export const Container = styled.div<Props>`
   align-items: center;
   flex-direction: column;
 
-  transition: all .3s;
+  transition: all 0.3s;
 
   position: fixed;
-  right: ${(props) => props.open ? '20px' : '-350px'};
+  right: ${props => (props.open ? '20px' : '-350px')};
   top: 20px;
 
   z-index: 3;
@@ -24,7 +24,7 @@ export const HeaderInfo = styled.div`
 
   background-color: var(--error);
 
-  padding: 10px 10px 10px 10PX;
+  padding: 10px 10px 10px 10px;
   border-radius: 5px 5px 0 0;
 
   width: 100%;
@@ -38,7 +38,7 @@ export const HeaderInfo = styled.div`
 export const ContentInfo = styled.div`
   background-color: var(--error-info);
 
-  padding: 10px 10px 10px 10PX;
+  padding: 10px 10px 10px 10px;
   border-radius: 0 0 5px 5px;
 
   width: 100%;
@@ -48,4 +48,3 @@ export const ContentInfo = styled.div`
     color: var(--white);
   }
 `;
-

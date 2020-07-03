@@ -9,18 +9,18 @@ export interface Props {
 
 const SnackError: React.FC<Props> = ({ open, message }) => {
   return (
-    <Container
-      open={open}
-    >
+    <Container open={open}>
       <HeaderInfo>
         <h3>Ops...</h3>
-        <span role="img" aria-label="bad">😨</span>
+        <span role="img" aria-label="bad">
+          😨
+        </span>
       </HeaderInfo>
       <ContentInfo>
-        <p>{message ? message : 'Sinto muito, algo inesperado aconteceu...'}</p>
+        <p>{message || 'Sinto muito, algo inesperado aconteceu...'}</p>
       </ContentInfo>
     </Container>
   );
-}
+};
 
 export default SnackError;

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   grid-area: SR;
@@ -18,7 +18,7 @@ export const Select = styled.select`
   background: var(--white-smoke);
   border: 3px solid var(--white-smoke);
 
-  transition: border .2s;
+  transition: border 0.2s;
   cursor: pointer;
 
   &:hover {
