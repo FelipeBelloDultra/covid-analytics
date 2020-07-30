@@ -12,6 +12,8 @@ export default createGlobalStyle`
 
     --error-info: #d55;
     --error: #f52a2a;
+
+    --recovered-info: #1a59bd;
   }
 
   * {
