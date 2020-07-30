@@ -37,7 +37,7 @@ const Layout: React.FC = () => {
 
   return (
     <Container>
-      <Header lastUpdate={updateRegion} region={data.region} />
+      <Header lastUpdate={updateRegion} />
 
       <CardContent>
         <Card

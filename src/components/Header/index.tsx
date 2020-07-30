@@ -5,11 +5,10 @@ import { Container } from './styles';
 import SelectRegion from '../SelectRegion';
 
 interface RegionsData {
-  region: string;
   lastUpdate?: Date;
 }
 
-const Header: React.FC<RegionsData> = ({ lastUpdate, region }) => {
+const Header: React.FC<RegionsData> = ({ lastUpdate }) => {
   const hoursUpdate = useMemo(() => {
     if (lastUpdate) {
       return lastUpdate.toLocaleTimeString();
@@ -26,10 +25,6 @@ const Header: React.FC<RegionsData> = ({ lastUpdate, region }) => {
     <Container>
       <header>
         <SelectRegion />
-
-        <section>
-          <h2>Região: {region}</h2>
-        </section>
 
         <section>
           <p>
