@@ -1,21 +1,15 @@
 import styled from 'styled-components';
 
-/*
- ** SR - Select Region
- ** IF - Information
- ** IC - Information Cases
- */
+export const Container = styled.div`
+  height: 100%;
+`;
 
-export const Grid = styled.div`
-  display: grid;
+export const CardContent = styled.div`
+  max-width: 1100px;
+  width: 100%;
+  margin: -50px auto 0;
 
-  grid-template-columns: auto auto 340px;
-  grid-template-rows: 100px auto auto;
-
-  grid-template-areas:
-    'SR SR IF'
-    'IC IC IF'
-    'IC IC IF';
-
-  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 `;
