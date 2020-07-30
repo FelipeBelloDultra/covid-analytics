@@ -64,7 +64,7 @@ const SelectRegion: React.FC = () => {
   return (
     <Container>
       <Select value={countriesValue} onChange={handleSelectCountry}>
-        <option value="0">Select a Country...</option>
+        <option value="0">Selecione uma região...</option>
         {countriesColettion.map(countrie => (
           <option key={countrie.id} value={countrie.name}>
             {countrie.name}

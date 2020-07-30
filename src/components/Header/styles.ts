@@ -7,15 +7,19 @@ export const Container = styled.div`
   text-align: center;
 
   header {
-    width: 1280px;
+    width: 1260px;
     margin: 0 auto;
-    padding: 0 0 160px;
+    padding: 0 20px 160px;
     height: 200px;
 
     flex-wrap: wrap;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: 590px) {
+      justify-content: center;
+    }
 
     > section {
       user-select: none;
@@ -34,6 +38,11 @@ export const Container = styled.div`
         justify-content: flex-end;
         color: var(--white-smoke);
         margin-bottom: 10px;
+      }
+
+      @media (max-width: 590px) {
+        justify-content: center;
+        margin-top: 30px;
       }
     }
   }
